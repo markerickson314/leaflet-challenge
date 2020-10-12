@@ -14,3 +14,18 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap);
 
+// api call to get geo json data on earthquakes
+d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(createMarkers);
+
+// function to create markers
+function createMarkers(response) {
+    
+    // console the response 
+    console.log(response);
+    //
+
+
+
+
+
+}
