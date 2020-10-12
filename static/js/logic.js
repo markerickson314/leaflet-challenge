@@ -49,18 +49,16 @@ function createMarkers(response) {
         var mag = response.features[i].properties.mag;
         var lat = response.features[i].geometry.coordinates[1];
         var lon = response.features[i].geometry.coordinates[0];
+        var place = response.features[i].properties.place;
         
         L.circle([lat, lon], {
             fillOpacity: 0.75,
             color: "black",
             fillColor: color,
             radius: mag * 25000
-        }).addTo(myMap);
+        }).bindPopup("<h2>" + place + "</h2><h2>Magnitude: " + mag + "</h2>")
+            .addTo(myMap);
 
     }
-
-
-
-
 
 }
