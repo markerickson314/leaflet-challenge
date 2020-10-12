@@ -61,4 +61,32 @@ function createMarkers(response) {
 
     }
 
+    // add legend
+
+    function getColor(d) {
+        return  d < 5 ? "green":
+                d < 10 ? "yellow":
+                d < 20 ? "orange":
+                        "red"; 
+    }
+    
+    
+    var legend = L.control({position: 'bottomright'});
+
+    legend.onAdd = function(myMap) {
+
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [-5, 5, 10, 20]
+            labels = [];
+
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + getColor(grades[i] + 1) + '"></i>' + grades[i] + (grades[i +1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        }
+        
+        return div;
+    }
+
+    legend.addTo(myMap)
+
 }
