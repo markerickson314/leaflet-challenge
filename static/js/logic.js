@@ -76,17 +76,17 @@ function createMarkers(response) {
     legend.onAdd = function(myMap) {
 
         var div = L.DomUtil.create('div', 'info legend'),
-            grades = [-5, 5, 10, 20]
+            grades = [-5, 5, 10, 20],
             labels = [];
 
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
-                '<i style="background:' + getColor(grades[i] + 1) + '"></i>' + grades[i] + (grades[i +1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+                '<i style="background:' + getColor(grades[i] + 1) + '"></i>' + grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
         }
         
         return div;
     }
 
-    legend.addTo(myMap)
+    legend.addTo(myMap);
 
 }
